@@ -1,7 +1,6 @@
 import React from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {TopPage} from "./pages/toppage";
-import {Contests} from "./pages/contests";
 import {Contest} from "./pages/Contest";
 import {ContestTop} from "./pages/contest-top";
 import {ContestProblem} from "./pages/contest-problem";
@@ -20,7 +19,6 @@ export const Router:React.FC = () => {
                     <Header/>
                     <Routes>
                         <Route path='/' element={<TopPage/>}/>
-                        <Route path='contests' element={<Contests/>}/>
                         <Route path='login' element={<Login/>}/>
                         <Route path=':contestId' element={<Contest/>}>
                             <Route path='contest-top' element={<ContestTop/>}/>

@@ -1,7 +1,10 @@
 import React from 'react';
 
-export const TopPage = () => {
+export const TopPage:React.FC = () => {
     return (
-        <h1>TopPage</h1>
-    )
+        <center>
+            <h1>松江高専情報科学研究部</h1>
+            <h1>オンラインジャッジシステム</h1>
+        </center>
+            )
 }

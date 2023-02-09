@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Contests = () => {
+export const Contests:React.FC = () => {
     return <h1>Contests</h1>
 }
