@@ -4,8 +4,10 @@ import {Outlet} from "react-router-dom";
 export const Contest = () => {
     return (
         <>
-            <h1>Contest</h1>
-            <Outlet/>
+            <center>
+                <h1>ContestTitle</h1>
+                <Outlet/>
+            </center>
         </>
     )
 }

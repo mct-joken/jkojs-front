@@ -19,9 +19,9 @@ export const Router:React.FC = () => {
                     <Header/>
                     <Routes>
                         <Route path='/' element={<TopPage/>}/>
-                        <Route path='login' element={<Login/>}/>
-                        <Route path=':contestId' element={<Contest/>}>
-                            <Route path='contest-top' element={<ContestTop/>}/>
+                        <Route path='/login' element={<Login/>}/>
+                        <Route path='/:contestId' element={<Contest/>}>
+                            <Route path='top' element={<ContestTop/>}/>
                             <Route path='problem' element={<ContestProblem/>}/>
                             <Route path='ranking' element={<ContestRanking/>}/>
                             <Route path='result' element={<ContestResult/>}/>

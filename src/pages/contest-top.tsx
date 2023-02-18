@@ -1,9 +1,9 @@
 import React from 'react';
-
+import ContestHeader from "../components/ContestHeader";
 export const ContestTop: React.FC = () => {
     return (
         <>
-            ContestTop
+            <ContestHeader page="top"/>
         </>
     )
 }
