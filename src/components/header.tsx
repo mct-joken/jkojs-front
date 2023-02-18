@@ -10,10 +10,11 @@ import Typography from "@mui/material/Typography";
 
 
 
-const link = {
+const title = {
     color:'#FFF',
     textDecoration: 'none',
     marginRight: '2em',
+    flexGrow: 1,
 }
 
 const settings = ['ログイン']
@@ -34,18 +35,7 @@ export function Header() {
                     display: 'flex',
                     fontFamily: 'IBM Plex Sans'
                 }}>
-                    <Link to='/' style={link}><h1>JK-OJS</h1></Link>
-
-                    <ul style={{
-                        listStyle: 'none',
-                        display: 'flex',
-                        paddingLeft: '2em',
-                        flexGrow: 1
-                    }}>
-                        <li><Link to='/' style={link}>トップページ</Link></li>
-                        <li><Link to='contests' style={link}>コンテスト一覧</Link></li>
-                    </ul>
-
+                    <Link to='/' style={title}><h1>JK-OJS</h1></Link>
 
                     {/* アカウント */}
                     <Tooltip title="アカウント">
