@@ -9,9 +9,9 @@ interface Props {
     description: string;
 }
 
-const ContestDescription: React.FC<Props> = ({ description }) => {
+const KaTeXComponnet: React.FC<Props> = ({ description }) => {
     const text = md.render(description);
     return <div dangerouslySetInnerHTML={{ __html: text }} />;
 };
 
-export default ContestDescription;
+export default KaTeXComponnet;
