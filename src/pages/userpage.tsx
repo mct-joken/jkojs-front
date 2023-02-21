@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 interface Props {
     userName: string,
     userImage: string,
+    isme: boolean,
 }
 const ButtonStyle = {
     borderRadius: "20px",
@@ -15,7 +16,7 @@ const ButtonStyle = {
     margin: "0.5rem",
 }
 
-const Mypage: React.FC<Props> = ({userName, userImage}) => {
+const Userpage: React.FC<Props> = ({userName, userImage, isme}) => {
     return (
         <>
             <center>
@@ -25,13 +26,17 @@ const Mypage: React.FC<Props> = ({userName, userImage}) => {
                     flexFlow: "column",
                     justifyContent: "space-around",
                 }}>
-                    <Button sx={ButtonStyle}><Typography>パスワードを変更する</Typography></Button>
-                    <Button sx={ButtonStyle}><Typography>ログアウト</Typography></Button>
-                    <Button sx={ButtonStyle}><Typography>アカウント削除</Typography></Button>
+                    {isme &&
+                        <div>
+                            <Button sx={ButtonStyle}><Typography>パスワードを変更する</Typography></Button>
+                            <Button sx={ButtonStyle}><Typography>ログアウト</Typography></Button>
+                            <Button sx={ButtonStyle}><Typography>アカウント削除</Typography></Button>
+                        </div>
+                    }
                 </div>
             </center>
         </>
     )
 }
 
-export default Mypage;
+export default Userpage;
