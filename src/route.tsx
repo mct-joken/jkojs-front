@@ -11,7 +11,10 @@ import {NotFound} from "./pages/NotFound";
 import {Login} from "./pages/login";
 import {Footer} from "./components/footer";
 import Container from "@mui/material/Container";
+import Mypage from "./pages/mypage";
 export const Router:React.FC = () => {
+    const Name = "kijiharu";
+    const Image = "https://2.bp.blogspot.com/-92v03A2PkYk/WdyDSK1210I/AAAAAAABHbI/Hjr-UvR8d-AcoPNABFAPvs7iN1Bl4NxjgCLcBGAs/s400/character_program_fat.png"
     return (
         <>
             <BrowserRouter>
@@ -20,6 +23,7 @@ export const Router:React.FC = () => {
                     <Routes>
                         <Route path='/' element={<TopPage/>}/>
                         <Route path='/login' element={<Login/>}/>
+                        <Route path='/mypage' element={<Mypage userName={Name} userImage={Image}/>}/>
                         <Route path='/:contestId' element={<Contest/>}>
                             <Route path='top' element={<ContestTop/>}/>
                             <Route path='problem' element={<ContestProblem/>}/>

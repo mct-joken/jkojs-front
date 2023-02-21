@@ -29,7 +29,7 @@ export function Header() {
         setAnchorElUser(null);
     };
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, width: "100%" }}>
             <AppBar position="static" sx={{height:'3.4em'}} style={{backgroundColor: '#1B2832', position: 'relative'}}>
                 <Toolbar sx={{
                     display: 'flex',
