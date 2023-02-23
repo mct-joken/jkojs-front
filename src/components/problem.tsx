@@ -114,6 +114,7 @@ const Problem: React.FC<Props> = ({problemA,problemB,problemC, problemD}) => {
                             <Select
                                 value={lang}
                                 onChange={handleChange}
+                                sx={{backgroundColor: "#fff"}}
                             >
                                 {languages.map((language) => (
                                     <MenuItem value={language}>{language}</MenuItem>
