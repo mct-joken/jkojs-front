@@ -17,7 +17,7 @@ export const TopPage:React.FC = () => {
                         height: "2px",
                         width: "100%",
                     }}/>
-                    <ConstestPage title="チュートリアル" description="これは練習用の常設コンテストです"/>
+                    <ConstestPage title="チュートリアル" description="これは練習用の常設コンテストです" link={"/1/top"}/>
                 </main>
             </Container>
 

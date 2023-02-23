@@ -2,20 +2,23 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {Button, Stack} from "@mui/material";
+import {Link} from "react-router-dom";
 
 interface Props {
     title: string;
     description: string;
+    link: string;
 }
 const ConstestPage: React.FC<Props> = ({
                                            title,
                                            description,
+                                           link
                                        }) => {
     return (
         <>
             <Box sx={{
                 backgroundColor: "#D7FFD0",
-                height: "12rem",
+                height: "10rem",
                 width: "auto",
                 borderRadius: "20px",
                 display: "flex",
@@ -24,20 +27,24 @@ const ConstestPage: React.FC<Props> = ({
                 margin: "1rem",
             }}>
                 <Stack spacing={2} sx={{justifyContent: "center"}}>
-                    <Typography variant="h3">{title}</Typography>
-                    <Typography variant="h6">{description}</Typography>
+                    <Typography variant="h6">{title}</Typography>
+                    <Typography variant="subtitle2">{description}</Typography>
                     <center>
-                        <Button variant="contained" disableElevation sx={{
-                            backgroundColor: "#F5DFA5",
-                            borderRadius: "20px",
-                            width: "7rem",
-                            height: "3rem",
-                            color: "#000",
-                            textDecoration: "none",
-                            ":hover":{
-                                backgroundColor: "#a99764"
-                            }
-                        }}>参加する</Button>
+                            <Button variant="contained" disableElevation sx={{
+                                backgroundColor: "#F5DFA5",
+                                borderRadius: "20px",
+                                width: "5rem",
+                                height: "2rem",
+                                color: "#000",
+                                textDecoration: "none",
+                                ":hover":{
+                                    backgroundColor: "#a99764"
+                                }
+                            }}><Link to={link} style={{
+                                textDecoration: "none",
+                                fontSize: "0.7rem",
+                                color: "#000",
+                            }}>参加する</Link></Button>
                     </center>
                 </Stack>
             </Box>

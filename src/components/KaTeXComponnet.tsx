@@ -3,7 +3,7 @@ import MarkdownIt from "markdown-it";
 import mk from "markdown-it-katex";
 
 const md = new MarkdownIt();
-md.use(mk);
+md.use(mk, {"throwOnError" : false, "errorColor" : " #cc0000"});
 
 interface Props {
     description: string;
