@@ -3,15 +3,15 @@ import MarkdownIt from "markdown-it";
 import mk from "markdown-it-katex";
 
 const md = new MarkdownIt();
-md.use(mk);
+md.use(mk, {"throwOnError" : false, "errorColor" : " #cc0000"});
 
 interface Props {
     description: string;
 }
 
-const ContestDescription: React.FC<Props> = ({ description }) => {
+const KaTeXComponnet: React.FC<Props> = ({ description }) => {
     const text = md.render(description);
     return <div dangerouslySetInnerHTML={{ __html: text }} />;
 };
 
-export default ContestDescription;
+export default KaTeXComponnet;
