@@ -12,7 +12,6 @@
     "@babel/core": "^7.20.12",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@mui/base": "5.0.0-alpha.118",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.6",
     "@mui/system": "^5.11.9",
