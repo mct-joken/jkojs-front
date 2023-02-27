@@ -21,3 +21,5 @@ const ButtonComponent: React.FC<Props> = (props) => {
         </button>
     );
 };
+
+export default ButtonComponent;
