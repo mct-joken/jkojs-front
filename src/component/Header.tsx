@@ -41,14 +41,16 @@ const ResponsiveAppBar: React.FC<Props> = (props)  => {
     return (
         <AppBar position="static">
             <Container maxWidth="100%">
-                <Toolbar disableGutters>
+                <Toolbar disableGutters sx={{
+                    alignItems: "center"
+                }}>
                     <Typography
-                        variant="h6"
+                        variant="h4"
                         noWrap
                         component="a"
                         href="/"
                         sx={{
-                            mr: 2,
+                            mr: 4,
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
@@ -91,16 +93,16 @@ const ResponsiveAppBar: React.FC<Props> = (props)  => {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                    <Typography textAlign="center" variant={"h5"}>{page}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
                     <Typography
-                        variant="h5"
+                        variant="h4"
                         noWrap
                         component="a"
-                        href=""
+                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -119,13 +121,12 @@ const ResponsiveAppBar: React.FC<Props> = (props)  => {
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ color: 'white', display: 'block', mr: 4}}
                             >
-                                {page}
+                                <Typography variant={"h6"}>{page}</Typography>
                             </Button>
                         ))}
                     </Box>
-
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
