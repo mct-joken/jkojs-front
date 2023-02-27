@@ -19,7 +19,7 @@ interface Props {
     userIcon: string;
 }
 
-const ResponsiveAppBar: React.FC<Props> = (props)  => {
+const Header: React.FC<Props> = (props)  => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -40,7 +40,7 @@ const ResponsiveAppBar: React.FC<Props> = (props)  => {
 
     return (
         <AppBar position="static">
-            <Container maxWidth="100%">
+            <Container maxWidth={false}>
                 <Toolbar disableGutters sx={{
                     alignItems: "center"
                 }}>
@@ -161,4 +161,4 @@ const ResponsiveAppBar: React.FC<Props> = (props)  => {
         </AppBar>
     );
 }
-export default ResponsiveAppBar;
+export default Header;
