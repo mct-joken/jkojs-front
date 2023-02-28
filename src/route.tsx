@@ -5,9 +5,9 @@ export const Router:React.FC = () => {
     return (
         <>
             <BrowserRouter >
-                <Header userIcon="" userName="your name"/>
+                <Header userIcon="" userName="your name"　isLogin={true}/>
                 <Routes>
-                    <Route path="/" element={<div>Home</div>} />
+                    <Route path="/" element={<div>Home</div>}/>
                 </Routes>
             </BrowserRouter>
         </>
