@@ -1,13 +1,10 @@
 import React from "react";
 import {ThemeProvider} from "@mui/system";
 import theme from "../fixtures/theme";
-import Typography from "@mui/material/Typography";
 import KaTeX from "../component/KaTeX";
 import ContestHeader from "../component/ContestHeader";
-interface Props {
-    description: string;
-}
-const ContestTop: React.FC<Props> = () => {
+
+const ContestTop: React.FC = () => {
     return (
         <ThemeProvider theme={theme}>
             <center>

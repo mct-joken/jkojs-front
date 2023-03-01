@@ -17,8 +17,8 @@ export const Router:React.FC = () => {
                     <Routes>
                         <Route path="/" element={<Top/>}/>
                         <Route path="/contests" element={<Contests/>}/>
-                        <Route　path=":contestId" element={<Contest/>}>
-                            <Route path="top" element={<ContestTop/>}/>
+                        <Route　path=":contestId" element={<Contest　title={"テスト用"}/>}>
+                            <Route path="top" element={<ContestTop　/>}/>
                         </Route>
                         <Route path="*" element={<div>404</div>}/>
                     </Routes>
