@@ -5,6 +5,8 @@ import Top from "./pages/top";
 import Contests from "./pages/contests";
 import {ThemeProvider} from "@mui/system";
 import theme from "./fixtures/theme";
+import ContestTop from "./pages/contestTop";
+import Contest from "./pages/contest";
 
 export const Router:React.FC = () => {
     return (
@@ -15,6 +17,10 @@ export const Router:React.FC = () => {
                     <Routes>
                         <Route path="/" element={<Top/>}/>
                         <Route path="/contests" element={<Contests/>}/>
+                        <Route　path=":contestId" element={<Contest　title={"テスト用"}/>}>
+                            <Route path="top" element={<ContestTop　/>}/>
+                        </Route>
+                        <Route path="*" element={<div>404</div>}/>
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider>
