@@ -5,16 +5,18 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import {ButtonGroup} from "@mui/material";
 import Button from "@mui/material/Button";
+import {ThemeProvider} from "@mui/material/styles";
+import theme from "../fixtures/theme";
 const Contests: React.FC = () => {
     const [select, setSelect] = React.useState("all");
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <main>
                 <center>
                 <Typography variant={"h4"} sx={{
                     mt: 6,
                     justifyContent: "center",
-                    fontWeight: "bold",
+                    fontWeight: "semibold",
                 }}>コンテスト一覧</Typography>
                 <Box sx={{
                     width: "50%",
@@ -59,7 +61,7 @@ const Contests: React.FC = () => {
             " startTime="11:20" endTime="12:00" isAlways={true} link="/"/>
                 </Container>
             </main>
-        </>
+        </ThemeProvider>
     );
 };
 export default Contests;

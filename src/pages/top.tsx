@@ -3,10 +3,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import {Link} from "react-router-dom";
-
+import {ThemeProvider} from "@mui/system";
+import theme from "../fixtures/theme";
 const Top: React.FC = () => {
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <Container sx={{
                 mt: 6,
             }}>
@@ -33,7 +34,7 @@ const Top: React.FC = () => {
                     </Link>
                 </center>
             </Container>
-        </>
+        </ThemeProvider>
     );
 };
 
