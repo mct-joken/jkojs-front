@@ -21,7 +21,7 @@ const Top: React.FC = () => {
                     私たちのオンラインジャッジシステムを使って、プログラミングスキルを磨き、自己成長を目指してみませんか？
                 </Typography>
                 <center>
-                    <Link to={"/contests"}>
+                    <Link to={"/contests"} style={{textDecoration: "none"}}>
                         <Button variant={"contained"} sx={{
                             mt: 2,
                             justifySelf: "center",
