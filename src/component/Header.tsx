@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import {Link} from "react-router-dom";
 
 const pages = ['コンテンツ一覧', 'ヘルプ'];
 const settings = ['ログイン', 'アカウント作成'];
@@ -163,7 +164,8 @@ const Header: React.FC<Props> = (props)  => {
                                 ))}
                             </Menu>
                         </Box> :
-                        <Button sx={{
+                        <Link to="/mypage">
+                            <Button sx={{
                             flexGrow: 0,
                             backgroundColor: "#2331AE",
                             color: '#fff',
@@ -171,6 +173,7 @@ const Header: React.FC<Props> = (props)  => {
                                 backgroundColor: "#2331AE",
                             }
                         }}>ログイン</Button>
+                        </Link>
 
                     }
 
