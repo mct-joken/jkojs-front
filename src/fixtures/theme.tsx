@@ -1,6 +1,7 @@
 import {createTheme} from "@mui/material/styles";
+import {responsiveFontSizes} from "@mui/material";
 
-const theme = createTheme({
+let theme = createTheme({
     typography: {
         fontFamily: [
             'IBM Plex Sans JP',
@@ -8,4 +9,6 @@ const theme = createTheme({
         ].join(','),
     },
 });
+theme = responsiveFontSizes(theme);
+
 export default theme;

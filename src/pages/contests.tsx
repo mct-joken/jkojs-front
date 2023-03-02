@@ -46,19 +46,10 @@ const Contests: React.FC = () => {
                 }}>
                     <ContestPanel title="練習問題" description="
             初心者向けの常設の練習用のコンテストです。競技プログラミングが初めての人はこのコンテストをお勧めします。
-            " startTime="11:20" endTime="12:00" isAlways={false} link="/"/>
+            " startTime="11:20" endTime="12:00" isAlways={false} link="/1/top"/>
                     <ContestPanel title="練習問題" description="
             初心者向けの常設の練習用のコンテストです。競技プログラミングが初めての人はこのコンテストをお勧めします。
-            " startTime="11:20" endTime="12:00" isAlways={true} link="/"/>
-                    <ContestPanel title="練習問題" description="
-            初心者向けの常設の練習用のコンテストです。競技プログラミングが初めての人はこのコンテストをお勧めします。
-            " startTime="11:20" endTime="12:00" isAlways={false} link="/"/>
-                    <ContestPanel title="練習問題" description="
-            初心者向けの常設の練習用のコンテストです。競技プログラミングが初めての人はこのコンテストをお勧めします。
-            " startTime="11:20" endTime="12:00" isAlways={false} link="/"/>
-                    <ContestPanel title="練習問題" description="
-            初心者向けの常設の練習用のコンテストです。競技プログラミングが初めての人はこのコンテストをお勧めします。
-            " startTime="11:20" endTime="12:00" isAlways={true} link="/"/>
+            " startTime="11:20" endTime="12:00" isAlways={true} link="/1/top"/>
                 </Container>
             </main>
         </ThemeProvider>
