@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {Router} from './route'
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Router } from "./route";
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Router />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
