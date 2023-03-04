@@ -11,7 +11,7 @@ const Contest: React.FC<Props> = (props) => {
   return (
     <ThemeProvider theme={theme}>
       <center>
-        <Typography variant={"h4"} sx={{ m: "1rem" }}>
+        <Typography variant={"h4"} sx={{ m: "2rem" }}>
           {props.title}
         </Typography>
       </center>
