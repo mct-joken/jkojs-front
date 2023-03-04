@@ -9,6 +9,7 @@ import Mypage from "./pages/mypage";
 import ContestTop from "./pages/contestTop";
 import Contest from "./pages/contest";
 import Problem from "./pages/problem";
+import ContestResult from "./pages/contestResult";
 
 export const Router: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ export const Router: React.FC = () => {
             >
               <Route path="top" element={<ContestTop />} />
               <Route path="problem" element={<Problem />} />
+              <Route path="result" element={<ContestResult />} />
             </Route>
             <Route path="*" element={<div>404</div>} />
           </Routes>
