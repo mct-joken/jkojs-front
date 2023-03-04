@@ -11,7 +11,7 @@ import Contest from "./pages/contest";
 import Problem from "./pages/problem";
 import ContestResult from "./pages/contestResult";
 import ContestRanking from "./pages/contestRanking";
-
+import Login from "./pages/login";
 export const Router: React.FC = () => {
   return (
     <>
@@ -22,6 +22,7 @@ export const Router: React.FC = () => {
             <Route path="/" element={<Top />} />
             <Route path="/contests" element={<Contests />} />
             <Route path="/mypage" element={<Mypage />} />
+            <Route path="/login" element={<Login />} />
             <Route
               path=":contestId"
               element={<Contest title={"テスト用コンテスト"} />}
