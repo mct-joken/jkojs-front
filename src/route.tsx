@@ -17,7 +17,7 @@ export const Router: React.FC = () => {
     <>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Header userIcon="" userName="your name" isLogin={false} />
+          <Header userIcon="" userName="your name" isLogin={true} />
           <Routes>
             <Route path="/" element={<Top />} />
             <Route path="/contests" element={<Contests />} />
