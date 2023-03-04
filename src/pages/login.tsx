@@ -24,7 +24,7 @@ const Login: React.FC = () => {
           }}
         >
           <Typography variant={"h4"} sx={{ m: 2 }}>
-            アカウント作成
+            ログイン
           </Typography>
           <Container
             sx={{
