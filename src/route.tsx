@@ -8,6 +8,7 @@ import theme from "./fixtures/theme";
 import Mypage from "./pages/mypage";
 import ContestTop from "./pages/contestTop";
 import Contest from "./pages/contest";
+import Problem from "./pages/problem";
 
 export const Router:React.FC = () => {
     return (
@@ -19,8 +20,9 @@ export const Router:React.FC = () => {
                         <Route path="/" element={<Top/>}/>
                         <Route path="/contests" element={<Contests/>}/>
                         <Route path="/mypage" element={<Mypage/>}/>
-                        <Route　path=":contestId" element={<Contest　title={"テスト用"}/>}>
+                        <Route　path=":contestId" element={<Contest　title={"テスト用コンテスト"}/>}>
                             <Route path="top" element={<ContestTop　/>}/>
+                            <Route path="problem" element={<Problem/>}/>
                         </Route>
                         <Route path="*" element={<div>404</div>}/>
                     </Routes>

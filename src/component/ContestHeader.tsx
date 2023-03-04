@@ -20,6 +20,7 @@ const ContestHeader: React.FC<Props> = (props) => {
                     justifyContent="center"
                     alignItems="center"
                     spacing={5}
+                    sx={{width: "100%", marginBottom: "3rem"}}
                 >
                     <Link to={"/1/top"}　style={{textDecoration: "none", color: "#000"}}>
                         <Typography variant="h6" component="div" sx={{flexGrow: 1}}>トップ</Typography>
