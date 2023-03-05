@@ -53,6 +53,7 @@ const ContestResult: React.FC = () => {
                       sx={{
                         display: "flex",
                         justifyContent: "center",
+                        alignItems: "center",
                       }}
                     >
                       <MemoryIcon />
@@ -64,6 +65,7 @@ const ContestResult: React.FC = () => {
                       sx={{
                         display: "flex",
                         justifyContent: "center",
+                        alignItems: "center",
                       }}
                     >
                       <SpeedIcon />

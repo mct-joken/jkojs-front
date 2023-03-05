@@ -12,8 +12,9 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
+import { ThemeProvider } from "@mui/system";
+import theme from "../fixtures/theme";
 
-const pages = ["コンテンツ一覧", "ヘルプ"];
 interface Props {
   userName: string;
   userIcon: string;
@@ -44,173 +45,176 @@ const Header: React.FC<Props> = (props) => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#D8E2FD" }}>
-      <Container maxWidth={false}>
-        <Toolbar
-          disableGutters
-          sx={{
-            alignItems: "center",
-          }}
-        >
-          <Typography
-            variant="h4"
-            noWrap
-            component="a"
-            href="/"
+    <ThemeProvider theme={theme}>
+      <AppBar position="static" sx={{ backgroundColor: "#D8E2FD" }}>
+        <Container maxWidth={false}>
+          <Toolbar
+            disableGutters
             sx={{
-              mr: 4,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "IBM Plex Sans",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "#000",
-              textDecoration: "none",
+              alignItems: "center",
             }}
           >
-            JKOJS
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav ?? undefined)}
-              onClose={handleCloseNavMenu}
+            <Typography
+              variant="h4"
+              noWrap
+              component="a"
+              href="/"
               sx={{
-                display: { xs: "block", md: "none" },
+                mr: 4,
+                display: { xs: "none", md: "flex" },
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "#000",
+                textDecoration: "none",
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography
-                    textAlign="center"
-                    variant={"subtitle2"}
-                    sx={{
-                      fontFamily: "IBM Plex Sans",
-                      color: "black",
-                    }}
-                  >
-                    {page}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant="h4"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "IBM Plex Sans",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "black",
-              textDecoration: "none",
-            }}
-          >
-            JKOJS
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ color: "white", display: "block", mr: 4 }}
+              JKOJS
+            </Typography>
+            {/* 幅が小さい時 */}
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
               >
-                <Typography
-                  variant={"h6"}
-                  sx={{
-                    fontFamily: "IBM Plex Sans",
-                    color: "black",
-                  }}
-                >
-                  {page}
-                </Typography>
-              </Button>
-            ))}
-          </Box>
-          {props.isLogin ? (
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Account Setting" src={props.userIcon} />
-                </IconButton>
-              </Tooltip>
+                <MenuIcon />
+              </IconButton>
               <Menu
-                sx={{ mt: "45px" }}
                 id="menu-appbar"
-                anchorEl={anchorElUser}
+                anchorEl={anchorElNav}
                 anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
+                  vertical: "bottom",
+                  horizontal: "left",
                 }}
                 keepMounted
                 transformOrigin={{
                   vertical: "top",
-                  horizontal: "right",
+                  horizontal: "left",
                 }}
-                open={Boolean(anchorElUser ?? undefined)}
-                onClose={handleCloseUserMenu}
+                open={Boolean(anchorElNav ?? undefined)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
               >
-                <Link
-                  to={"/mypage"}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">マイページ</Typography>
-                  </MenuItem>
-                </Link>
-                <Link
-                  to={"/"}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">ログアウト</Typography>
-                  </MenuItem>
-                </Link>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Link
+                    to="/contests"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <Typography
+                      textAlign="center"
+                      variant={"subtitle2"}
+                      sx={{
+                        color: "black",
+                      }}
+                    >
+                      コンテスト一覧
+                    </Typography>
+                  </Link>
+                </MenuItem>
               </Menu>
             </Box>
-          ) : (
-            <Link to="/login">
+
+            {/* 幅が大きい時 */}
+            <Typography
+              variant="h4"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "black",
+                textDecoration: "none",
+              }}
+            >
+              JKOJS
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               <Button
-                sx={{
-                  flexGrow: 0,
-                  backgroundColor: "#2331AE",
-                  color: "#fff",
-                  ":hover": {
-                    backgroundColor: "#2331AE",
-                  },
-                }}
+                onClick={handleCloseNavMenu}
+                sx={{ color: "white", display: "block", mr: 4 }}
               >
-                ログイン
+                <Link to={"/contests"} style={{ textDecoration: "none" }}>
+                  <Typography
+                    variant={"h6"}
+                    sx={{
+                      color: "black",
+                    }}
+                  >
+                    コンテスト一覧
+                  </Typography>
+                </Link>
               </Button>
-            </Link>
-          )}
-        </Toolbar>
-      </Container>
-    </AppBar>
+            </Box>
+            {/* ログインしている時としていないときによって分ける */}
+            {props.isLogin ? (
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt="Account Setting" src={props.userIcon} />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser ?? undefined)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <Link
+                    to={"/mypage"}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <MenuItem onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">マイページ</Typography>
+                    </MenuItem>
+                  </Link>
+                  <Link
+                    to={"/"}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <MenuItem onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">ログアウト</Typography>
+                    </MenuItem>
+                  </Link>
+                </Menu>
+              </Box>
+            ) : (
+              <Link to="/login">
+                <Button
+                  sx={{
+                    flexGrow: 0,
+                    backgroundColor: "#2331AE",
+                    color: "#fff",
+                    ":hover": {
+                      backgroundColor: "#2331AE",
+                    },
+                  }}
+                >
+                  ログイン
+                </Button>
+              </Link>
+            )}
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </ThemeProvider>
   );
 };
 export default Header;
