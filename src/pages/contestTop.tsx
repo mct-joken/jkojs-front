@@ -11,7 +11,17 @@ const ContestTop: React.FC = () => {
         <ContestHeader selected="トップ" />
         <KaTeX
           description={
-            "このコンテストは、競技プログラミング初心者向けの練習用コンテストです。\nプログラミングの基礎的な知識を身につけたい方には、このコンテストへの挑戦をお勧めします。\n競技プログラミングに必要な、基本的な入力出力、四則演算、繰り返しや条件分岐などの知識が必要です。"
+            "# markdown-it-katex \n" +
+            "$$\\begin{array}{c}" +
+            "" +
+            "\\nabla \\times \\vec{\\mathbf{B}} -\\, \\frac1c\\, \\frac{\\partial\\vec{\\mathbf{E}}}{\\partial t} &" +
+            "= \\frac{4\\pi}{c}\\vec{\\mathbf{j}}    \\nabla \\cdot \\vec{\\mathbf{E}} & = 4 \\pi \\rho \\\\" +
+            "" +
+            "\\nabla \\times \\vec{\\mathbf{E}}\\, +\\, \\frac1c\\, \\frac{\\partial\\vec{\\mathbf{B}}}{\\partial t} & = \\vec{\\mathbf{0}} \\\\" +
+            "" +
+            "\\nabla \\cdot \\vec{\\mathbf{B}} & = 0" +
+            " " +
+            "\\end{array}$$"
           }
         />
       </center>
