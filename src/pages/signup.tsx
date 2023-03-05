@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-const Login: React.FC = () => {
+const Signup: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <center>
@@ -23,8 +23,8 @@ const Login: React.FC = () => {
             mt: 6,
           }}
         >
-          <Typography variant={"h4"} sx={{ m: 2 }}>
-            ログイン
+          <Typography variant={"h4"} sx={{ mt: "2rem", mb: "1rem" }}>
+            アカウント作成
           </Typography>
           <Container
             sx={{
@@ -43,7 +43,24 @@ const Login: React.FC = () => {
               variant={"outlined"}
             />
             <TextField
-              label={"パスワード"}
+              label={"メールアドレス"}
+              sx={{
+                m: 2,
+                backgroundColor: "white",
+              }}
+              variant={"outlined"}
+            />
+            <TextField
+              label={"パスワード(8文字以上)"}
+              sx={{
+                m: 2,
+                backgroundColor: "white",
+              }}
+              variant={"outlined"}
+              type={"password"}
+            />
+            <TextField
+              label={"パスワード(確認用)"}
               sx={{
                 m: 2,
                 backgroundColor: "white",
@@ -52,8 +69,8 @@ const Login: React.FC = () => {
               type={"password"}
             />
             <Typography variant={"body2"} sx={{ m: 2 }}>
-              アカウントがありませんか？
-              <Link to={"/"}>アカントを作成</Link>
+              <Link to={"/"}>利用規約</Link>
+              を読んだ上でアカウントを作成してください.
             </Typography>
           </Container>
           <Link to={"/"}>
@@ -68,7 +85,7 @@ const Login: React.FC = () => {
                 },
               }}
             >
-              ログイン
+              アカウント作成
             </Button>
           </Link>
         </Box>
@@ -76,4 +93,4 @@ const Login: React.FC = () => {
     </ThemeProvider>
   );
 };
-export default Login;
+export default Signup;
