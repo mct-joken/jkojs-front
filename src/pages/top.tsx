@@ -42,57 +42,6 @@ const Top: React.FC = () => {
               コンテスト一覧
             </Button>
           </Link>
-          <Link to="/signup" style={{ textDecoration: "none" }}>
-            <Button
-              variant={"contained"}
-              sx={{
-                mt: 2,
-                ml: 2,
-                justifySelf: "center",
-                backgroundColor: "#FFD700",
-                color: "#000",
-                ":hover": {
-                  backgroundColor: "#FFD700",
-                },
-              }}
-            >
-              アカウント作成
-            </Button>
-          </Link>
-          <Link to="/login" style={{ textDecoration: "none" }}>
-            <Button
-              variant={"contained"}
-              sx={{
-                mt: 2,
-                ml: 2,
-                justifySelf: "center",
-                backgroundColor: "#FFD700",
-                color: "#000",
-                ":hover": {
-                  backgroundColor: "#FFD700",
-                },
-              }}
-            >
-              ログイン
-            </Button>
-          </Link>
-          <Link to="/mypage" style={{ textDecoration: "none" }}>
-            <Button
-              variant={"contained"}
-              sx={{
-                mt: 2,
-                ml: 2,
-                justifySelf: "center",
-                backgroundColor: "#FFD700",
-                color: "#000",
-                ":hover": {
-                  backgroundColor: "#FFD700",
-                },
-              }}
-            >
-              マイページ
-            </Button>
-          </Link>
         </center>
       </Container>
     </ThemeProvider>

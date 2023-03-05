@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 
 const pages = ["コンテンツ一覧", "ヘルプ"];
+const settings = ["ログイン", "アカウント作成"];
 interface Props {
   userName: string;
   userIcon: string;
@@ -174,26 +175,15 @@ const Header: React.FC<Props> = (props) => {
                 open={Boolean(anchorElUser ?? undefined)}
                 onClose={handleCloseUserMenu}
               >
-                <Link
-                  to={"/mypage"}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">マイページ</Typography>
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
-                </Link>
-                <Link
-                  to={"/"}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">ログアウト</Typography>
-                  </MenuItem>
-                </Link>
+                ))}
               </Menu>
             </Box>
           ) : (
-            <Link to="/login">
+            <Link to="/mypage">
               <Button
                 sx={{
                   flexGrow: 0,

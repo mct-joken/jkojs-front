@@ -10,21 +10,17 @@ import ContestTop from "./pages/contestTop";
 import Contest from "./pages/contest";
 import Problem from "./pages/problem";
 import ContestResult from "./pages/contestResult";
-import ContestRanking from "./pages/contestRanking";
-import Login from "./pages/login";
-import Signup from "./pages/signup";
+
 export const Router: React.FC = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Header userIcon="" userName="your name" isLogin={true} />
+          <Header userIcon="" userName="your name" isLogin={false} />
           <Routes>
             <Route path="/" element={<Top />} />
             <Route path="/contests" element={<Contests />} />
             <Route path="/mypage" element={<Mypage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
             <Route
               path=":contestId"
               element={<Contest title={"テスト用コンテスト"} />}
@@ -32,7 +28,6 @@ export const Router: React.FC = () => {
               <Route path="top" element={<ContestTop />} />
               <Route path="problem" element={<Problem />} />
               <Route path="result" element={<ContestResult />} />
-              <Route path="ranking" element={<ContestRanking />} />
             </Route>
             <Route path="*" element={<div>404</div>} />
           </Routes>
