@@ -22,7 +22,7 @@ const ContestPanel: React.FC<Props> = (props) => {
   return (
     <ThemeProvider theme={theme}>
       <Link
-        to={props.link}
+        to={`/${props.link}/top`}
         style={{ textDecoration: "none", color: "#000", margin: "0.5rem" }}
       >
         <Box

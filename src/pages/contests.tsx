@@ -96,7 +96,7 @@ export const Contests: React.FC = () => {
                 description={contest.description}
                 startTime={contest.startAt}
                 endTime={contest.endAt}
-                link={contest.id + "/top"}
+                link={contest.id}
               />
             );
           })}
