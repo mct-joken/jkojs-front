@@ -9,7 +9,7 @@ interface Props {
   description: string;
   startTime: string;
   endTime: string;
-  isAlways: boolean;
+  isAlways?: boolean;
   link: string;
 }
 
@@ -28,7 +28,7 @@ const ContestPanel: React.FC<Props> = (props) => {
         <Box
           sx={{
             width: "20rem",
-            height: "12rem",
+            height: "13rem",
             backgroundColor: undefined,
             borderRadius: "1rem",
             display: "flex",
@@ -65,6 +65,9 @@ const ContestPanel: React.FC<Props> = (props) => {
             </Typography>
             <Typography variant={"body2"} align={"left"} sx={{ width: "95%" }}>
               {props.description}
+            </Typography>
+            <Typography variant={"body2"} sx={{ fontWeight: "semibold" }}>
+              {props.startTime} ~ {props.endTime}
             </Typography>
           </center>
         </Box>

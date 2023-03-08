@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ContestPanel from "../component/ContestPanel";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -7,8 +7,28 @@ import { ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../fixtures/theme";
-const Contests: React.FC = () => {
+import axios from "axios";
+type Contest = {
+  id: string;
+  title: string;
+  description: string;
+  startAt: string;
+  endAt: string;
+  createdAt: string;
+  updatedAt: string;
+};
+export const Contests: React.FC = () => {
   const [select, setSelect] = React.useState("all");
+  const [contests, setContests] = React.useState<Contest[]>([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3080/api/v1/contests", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+      .then((res) => {
+        setContests(res.data);
+      });
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <main>
@@ -68,29 +88,20 @@ const Contests: React.FC = () => {
             flexWrap: "wrap",
           }}
         >
-          <ContestPanel
-            title="練習問題"
-            description="
-            初心者向けの常設の練習用のコンテストです。競技プログラミングが初めての人はこのコンテストをお勧めします。
-            "
-            startTime="11:20"
-            endTime="12:00"
-            isAlways={false}
-            link="/1/top"
-          />
-          <ContestPanel
-            title="練習問題"
-            description="
-            初心者向けの常設の練習用のコンテストです。競技プログラミングが初めての人はこのコンテストをお勧めします。
-            "
-            startTime="11:20"
-            endTime="12:00"
-            isAlways={true}
-            link="/1/top"
-          />
+          {contests.map((contest) => {
+            return (
+              // eslint-disable-next-line react/jsx-key
+              <ContestPanel
+                title={contest.title}
+                description={contest.description}
+                startTime={contest.startAt}
+                endTime={contest.endAt}
+                link={contest.id + "/top"}
+              />
+            );
+          })}
         </Container>
       </main>
     </ThemeProvider>
   );
 };
-export default Contests;
