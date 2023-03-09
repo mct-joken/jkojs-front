@@ -15,7 +15,7 @@ import languages from "../fixtures/languages";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
-const Problem: React.FC = () => {
+export const Problem: React.FC = () => {
   const problems = [
     {
       title: "A問題",
@@ -166,5 +166,3 @@ const Problem: React.FC = () => {
     </ThemeProvider>
   );
 };
-
-export default Problem;

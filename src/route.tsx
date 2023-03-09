@@ -8,7 +8,7 @@ import theme from "./fixtures/theme";
 import Mypage from "./pages/mypage";
 import ContestTop from "./pages/contestTop";
 import Contest from "./pages/contest";
-import Problem from "./pages/problem";
+import { Problem } from "./pages/problem";
 import ContestResult from "./pages/contestResult";
 import ContestRanking from "./pages/contestRanking";
 import { Login } from "./pages/login";
