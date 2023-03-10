@@ -6,6 +6,10 @@ import Typography from "@mui/material/Typography";
 import Deleteuser from "../component/Deleteuser";
 
 const Mypage: React.FC = () => {
+  if (localStorage.getItem("token") == null) {
+    window.location.href = "/";
+  }
+
   const userData = {
     name: "none",
     email: "none@email.com",

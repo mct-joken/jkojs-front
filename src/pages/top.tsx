@@ -42,6 +42,7 @@ const Top: React.FC = () => {
               コンテスト一覧
             </Button>
           </Link>
+          {/*
           <Link to="/signup" style={{ textDecoration: "none" }}>
             <Button
               variant={"contained"}
@@ -93,6 +94,7 @@ const Top: React.FC = () => {
               マイページ
             </Button>
           </Link>
+          */}
         </center>
       </Container>
     </ThemeProvider>

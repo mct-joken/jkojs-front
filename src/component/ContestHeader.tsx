@@ -22,7 +22,7 @@ const ContestHeader: React.FC<Props> = (props) => {
           spacing={5}
           sx={{ width: "100%", marginBottom: "3rem" }}
         >
-          <Link to={"/1/top"} style={{ textDecoration: "none", color: "#000" }}>
+          <Link to={"../top"} style={{ textDecoration: "none", color: "#000" }}>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               トップ
             </Typography>
@@ -35,7 +35,7 @@ const ContestHeader: React.FC<Props> = (props) => {
             )}
           </Link>
           <Link
-            to={"/1/problem"}
+            to={"../problem"}
             style={{ textDecoration: "none", color: "#000" }}
           >
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -50,7 +50,7 @@ const ContestHeader: React.FC<Props> = (props) => {
             )}
           </Link>
           <Link
-            to={"/1/result"}
+            to={"../result"}
             style={{ textDecoration: "none", color: "#000" }}
           >
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -65,7 +65,7 @@ const ContestHeader: React.FC<Props> = (props) => {
             )}
           </Link>
           <Link
-            to={"/1/ranking"}
+            to={"../ranking"}
             style={{ textDecoration: "none", color: "#000" }}
           >
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
