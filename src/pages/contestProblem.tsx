@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/system";
 import theme from "../fixtures/theme";
 import ContestHeader from "../component/ContestHeader";
@@ -14,40 +14,36 @@ import Box from "@mui/material/Box";
 import languages from "../fixtures/languages";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-
-export const Problem: React.FC = () => {
-  const problems = [
+import axios from "axios";
+type Problem = {
+  problems: [
     {
-      title: "A問題",
-      description:
-        "# markdown-it-katex \n" +
-        "# KaTeXでかけますよってこと \n" +
-        "$$\\begin{array}{c}" +
-        "" +
-        "\\nabla \\times \\vec{\\mathbf{B}} -\\, \\frac1c\\, \\frac{\\partial\\vec{\\mathbf{E}}}{\\partial t} &" +
-        "= \\frac{4\\pi}{c}\\vec{\\mathbf{j}}    \\nabla \\cdot \\vec{\\mathbf{E}} & = 4 \\pi \\rho \\\\" +
-        "" +
-        "\\nabla \\times \\vec{\\mathbf{E}}\\, +\\, \\frac1c\\, \\frac{\\partial\\vec{\\mathbf{B}}}{\\partial t} & = \\vec{\\mathbf{0}} \\\\" +
-        "" +
-        "\\nabla \\cdot \\vec{\\mathbf{B}} & = 0" +
-        " " +
-        "\\end{array}$$",
-    },
-    {
-      title: "B問題",
-      description: "B問題",
-    },
-    {
-      title: "C問題",
-      description: "C問題",
-    },
-    {
-      title: "D問題",
-      description: "D問題",
-    },
+      id: string;
+      title: string;
+      text: string;
+      limits: {
+        memory: number;
+        time: number;
+      };
+    }
   ];
-  const [selected, setSelected] = React.useState(problems[0].title);
+};
+
+export const Problem: React.FC = memo(() => {
+  const [problem, setProblem] = useState<Problem>([]);
+  const [selected, setSelected] = React.useState();
   const [language, setLanguage] = useState("C(GCC)");
+
+  useEffect(() => {
+    axios
+      .get("localhost:3080/api/v1/contests/123123123/problems", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+      .then((response) => {
+        setProblem(response.data);
+        setSelected(response.data[0].title);
+      });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -165,4 +161,4 @@ export const Problem: React.FC = () => {
       </main>
     </ThemeProvider>
   );
-};
+});
