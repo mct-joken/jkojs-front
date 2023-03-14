@@ -1,7 +1,7 @@
 {
   /* 提出言語一覧 */
 }
-const languages = [
+export const languages = [
   "C(GCC)",
   "C(Clang)",
   "C++(G++)",
@@ -14,5 +14,3 @@ const languages = [
   "Java",
   "Rust",
 ];
-
-export default languages;

@@ -6,7 +6,9 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-export default function Deleteuser() {
+import { ThemeProvider } from "@mui/system";
+import { theme } from "../fixtures/theme";
+export const Deleteuser: React.FC = () => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -18,7 +20,7 @@ export default function Deleteuser() {
   };
 
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Button variant="outlined" color="error" onClick={handleClickOpen}>
         アカウント削除
       </Button>
@@ -49,6 +51,6 @@ export default function Deleteuser() {
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </ThemeProvider>
   );
-}
+};

@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
-import ContestHeader from "../component/ContestHeader";
+import { theme } from "../fixtures/theme";
+import { ContestHeader } from "../component/ContestHeader";
 import {
   FormControl,
   Select,
@@ -11,7 +11,7 @@ import {
 import MenuItem from "@mui/material/MenuItem";
 import KaTeX from "../component/KaTeX";
 import Box from "@mui/material/Box";
-import languages from "../fixtures/languages";
+import { languages } from "../fixtures/languages";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

@@ -13,7 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 
 // eslint-disable-next-line react/display-name
 export const Header: React.FC = memo(() => {

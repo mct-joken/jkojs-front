@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";

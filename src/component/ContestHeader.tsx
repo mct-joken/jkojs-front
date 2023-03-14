@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -10,7 +10,7 @@ import { Divider } from "@mui/material";
 interface Props {
   selected: string;
 }
-const ContestHeader: React.FC<Props> = (props) => {
+export const ContestHeader: React.FC<Props> = (props) => {
   return (
     <ThemeProvider theme={theme}>
       <Container sx={{ justifyContent: "center" }}>
@@ -84,4 +84,3 @@ const ContestHeader: React.FC<Props> = (props) => {
     </ThemeProvider>
   );
 };
-export default ContestHeader;

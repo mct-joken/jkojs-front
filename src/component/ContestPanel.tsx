@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 interface Props {
   title: string;
   description: string;
@@ -13,7 +13,7 @@ interface Props {
   link: string;
 }
 
-const ContestPanel: React.FC<Props> = (props) => {
+export const ContestPanel: React.FC<Props> = (props) => {
   const color = props.isAlways ? "solid 3px #3A88D0" : "solid 3px #22DC22";
   const boxShadow = props.isAlways
     ? "0px 0px 5px 1px #3A88D0"
@@ -75,4 +75,3 @@ const ContestPanel: React.FC<Props> = (props) => {
     </ThemeProvider>
   );
 };
-export default ContestPanel;

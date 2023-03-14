@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import ContestPanel from "../component/ContestPanel";
+import { ContestPanel } from "../component/ContestPanel";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { ButtonGroup } from "@mui/material";
 import Button from "@mui/material/Button";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 import axios from "axios";
 type Contest = {
   id: string;

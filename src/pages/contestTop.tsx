@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 import KaTeX from "../component/KaTeX";
-import ContestHeader from "../component/ContestHeader";
+import { ContestHeader } from "../component/ContestHeader";
 import axios from "axios";
-const ContestTop: React.FC = () => {
+export const ContestTop: React.FC = () => {
   const pathname: string = window.location.pathname;
   const contestId: string = pathname.split("/")[1];
   const [description, setDescription] = useState<string>("");
@@ -29,5 +29,3 @@ const ContestTop: React.FC = () => {
     </ThemeProvider>
   );
 };
-
-export default ContestTop;
