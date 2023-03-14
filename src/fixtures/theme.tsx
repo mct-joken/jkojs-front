@@ -8,4 +8,3 @@ export const theme = responsiveFontSizes(
     },
   })
 );
-export default theme;

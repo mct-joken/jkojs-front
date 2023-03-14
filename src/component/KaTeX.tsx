@@ -5,13 +5,14 @@ const md = new MarkdownIt();
 md.use(mk, { blockClass: "math-block", errorColor: "#cc0000" });
 
 interface Props {
+  style?: React.CSSProperties;
   description: string;
 }
 
 const KaTeX: React.FC<Props> = (props) => {
   const result = md.render(`${props.description}`);
   return (
-    <div>
+    <div style={props.style}>
       <div dangerouslySetInnerHTML={{ __html: result }} />
     </div>
   );

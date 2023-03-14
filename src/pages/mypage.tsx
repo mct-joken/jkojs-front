@@ -1,11 +1,15 @@
 import React from "react";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 import { ThemeProvider } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import Deleteuser from "../component/Deleteuser";
+import { Deleteuser } from "../component/Deleteuser";
 
-const Mypage: React.FC = () => {
+export const Mypage: React.FC = () => {
+  if (localStorage.getItem("token") == null) {
+    window.location.href = "/";
+  }
+
   const userData = {
     name: "none",
     email: "none@email.com",
@@ -51,4 +55,3 @@ const Mypage: React.FC = () => {
     </ThemeProvider>
   );
 };
-export default Mypage;

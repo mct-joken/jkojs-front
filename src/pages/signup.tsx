@@ -1,13 +1,68 @@
-import React from "react";
+import React, { memo } from "react";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
-const Signup: React.FC = () => {
+import axios from "axios";
+// eslint-disable-next-line react/display-name
+export const Signup: React.FC = memo(() => {
+  const [userName, setUserName] = React.useState<string>("");
+  const [email, setEmail] = React.useState<string>("");
+  const [password, setPassword] = React.useState<string>("");
+  const [passwordConfirmation, setPasswordConfirmation] =
+    React.useState<string>("");
+
+  const navigate = useNavigate();
+  const accessToken = {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  };
+
+  const onClickSignup = async () => {
+    if (
+      userName === "" ||
+      email === "" ||
+      password === "" ||
+      passwordConfirmation === ""
+    ) {
+      alert("入力されていない項目があります");
+      return;
+    }
+    if (password !== passwordConfirmation) {
+      alert("パスワードが一致しません");
+      return;
+    }
+    if (password.length < 8) {
+      alert("パスワードは8文字以上で入力してください");
+      return;
+    }
+    const authStatus = await axios
+      .post(
+        "http://localhost:3080/api/v1/users",
+        {
+          name: userName,
+          email: email,
+          password: password,
+        },
+        accessToken
+      )
+      .then((response) => {
+        navigate("/");
+        window.location.reload();
+        localStorage.setItem("token", response.data.token);
+      })
+      .catch(() => {
+        navigate("/signup");
+        alert(
+          "アカウント作成に失敗しました\n同じ名前のアカウントが存在する可能性があります"
+        );
+      });
+    console.log("authStatus", authStatus);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <center>
@@ -41,6 +96,9 @@ const Signup: React.FC = () => {
                 backgroundColor: "white",
               }}
               variant={"outlined"}
+              onChange={(e) => {
+                setUserName(e.target.value as string);
+              }}
             />
             <TextField
               label={"メールアドレス"}
@@ -49,6 +107,9 @@ const Signup: React.FC = () => {
                 backgroundColor: "white",
               }}
               variant={"outlined"}
+              onChange={(e) => {
+                setEmail(e.target.value as string);
+              }}
             />
             <TextField
               label={"パスワード(8文字以上)"}
@@ -58,6 +119,9 @@ const Signup: React.FC = () => {
               }}
               variant={"outlined"}
               type={"password"}
+              onChange={(e) => {
+                setPassword(e.target.value as string);
+              }}
             />
             <TextField
               label={"パスワード(確認用)"}
@@ -67,16 +131,20 @@ const Signup: React.FC = () => {
               }}
               variant={"outlined"}
               type={"password"}
+              onChange={(e) => {
+                setPasswordConfirmation(e.target.value as string);
+              }}
             />
             <Typography variant={"body2"} sx={{ m: 2 }}>
               <Link to={"/"}>利用規約</Link>
               を読んだ上でアカウントを作成してください.
             </Typography>
           </Container>
-          <Link to={"/"}>
+          <center>
             <Button
               sx={{
                 m: 2,
+                width: "8rem",
                 color: "white",
                 borderRadius: "0.3rem",
                 backgroundColor: "#2331AE",
@@ -84,13 +152,13 @@ const Signup: React.FC = () => {
                   backgroundColor: "#2331AE",
                 },
               }}
+              onClick={onClickSignup}
             >
               アカウント作成
             </Button>
-          </Link>
+          </center>
         </Box>
       </center>
     </ThemeProvider>
   );
-};
-export default Signup;
+});

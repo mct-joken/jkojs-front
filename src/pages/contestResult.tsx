@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
-import ContestHeader from "../component/ContestHeader";
+import { theme } from "../fixtures/theme";
+import { ContestHeader } from "../component/ContestHeader";
 import {
   Paper,
   Table,
@@ -34,7 +34,7 @@ const rows = [
   createData("C問題", "100", "100", "C(GCC)", "AC"),
   createData("D問題", "100", "100", "C(GCC)", "AC"),
 ];
-const ContestResult: React.FC = () => {
+export const ContestResult: React.FC = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -104,4 +104,3 @@ const ContestResult: React.FC = () => {
     </>
   );
 };
-export default ContestResult;

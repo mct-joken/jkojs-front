@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { memo } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,15 +13,16 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 
-interface Props {
-  userName: string;
-  userIcon: string;
-  isLogin?: boolean;
-}
+// eslint-disable-next-line react/display-name
+export const Header: React.FC = memo(() => {
+  const isLogin = localStorage.getItem("token") ? true : false;
 
-const Header: React.FC<Props> = (props) => {
+  {
+    /*userIconはまだ対応してない*/
+  }
+  const userIcon = "";
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -44,6 +45,10 @@ const Header: React.FC<Props> = (props) => {
     setAnchorElUser(null);
   };
 
+  const onChangeSignOut = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static" sx={{ backgroundColor: "#D8E2FD" }}>
@@ -154,11 +159,11 @@ const Header: React.FC<Props> = (props) => {
               </Button>
             </Box>
             {/* ログインしている時としていないときによって分ける */}
-            {props.isLogin ? (
+            {isLogin ? (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Account Setting" src={props.userIcon} />
+                    <Avatar alt="Account Setting" src={userIcon} />
                   </IconButton>
                 </Tooltip>
                 <Menu
@@ -181,18 +186,13 @@ const Header: React.FC<Props> = (props) => {
                     to={"/mypage"}
                     style={{ textDecoration: "none", color: "black" }}
                   >
-                    <MenuItem onClick={handleCloseUserMenu}>
+                    <MenuItem>
                       <Typography textAlign="center">マイページ</Typography>
                     </MenuItem>
                   </Link>
-                  <Link
-                    to={"/"}
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <MenuItem onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">ログアウト</Typography>
-                    </MenuItem>
-                  </Link>
+                  <MenuItem onClick={onChangeSignOut}>
+                    <Typography textAlign="center">ログアウト</Typography>
+                  </MenuItem>
                 </Menu>
               </Box>
             ) : (
@@ -216,5 +216,4 @@ const Header: React.FC<Props> = (props) => {
       </AppBar>
     </ThemeProvider>
   );
-};
-export default Header;
+});

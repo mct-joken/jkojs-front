@@ -1,6 +1,6 @@
 import { Stack, ThemeProvider } from "@mui/system";
 import React from "react";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 import Typography from "@mui/material/Typography";
 import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -12,7 +12,7 @@ interface Props {
   language: string;
   status: string;
 }
-const Result: React.FC<Props> = (props) => {
+export const Result: React.FC<Props> = (props) => {
   return (
     <ThemeProvider theme={theme}>
       <center>
@@ -36,4 +36,3 @@ const Result: React.FC<Props> = (props) => {
     </ThemeProvider>
   );
 };
-export default Result;
