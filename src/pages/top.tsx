@@ -4,8 +4,8 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
-const Top: React.FC = () => {
+import { theme } from "../fixtures/theme";
+export const Top: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container
@@ -42,63 +42,8 @@ const Top: React.FC = () => {
               コンテスト一覧
             </Button>
           </Link>
-          {/*
-          <Link to="/signup" style={{ textDecoration: "none" }}>
-            <Button
-              variant={"contained"}
-              sx={{
-                mt: 2,
-                ml: 2,
-                justifySelf: "center",
-                backgroundColor: "#FFD700",
-                color: "#000",
-                ":hover": {
-                  backgroundColor: "#FFD700",
-                },
-              }}
-            >
-              アカウント作成
-            </Button>
-          </Link>
-          <Link to="/login" style={{ textDecoration: "none" }}>
-            <Button
-              variant={"contained"}
-              sx={{
-                mt: 2,
-                ml: 2,
-                justifySelf: "center",
-                backgroundColor: "#FFD700",
-                color: "#000",
-                ":hover": {
-                  backgroundColor: "#FFD700",
-                },
-              }}
-            >
-              ログイン
-            </Button>
-          </Link>
-          <Link to="/mypage" style={{ textDecoration: "none" }}>
-            <Button
-              variant={"contained"}
-              sx={{
-                mt: 2,
-                ml: 2,
-                justifySelf: "center",
-                backgroundColor: "#FFD700",
-                color: "#000",
-                ":hover": {
-                  backgroundColor: "#FFD700",
-                },
-              }}
-            >
-              マイページ
-            </Button>
-          </Link>
-          */}
         </center>
       </Container>
     </ThemeProvider>
   );
 };
-
-export default Top;

@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 import {
   Paper,
   Table,
@@ -10,7 +10,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import ContestHeader from "../component/ContestHeader";
+import { ContestHeader } from "../component/ContestHeader";
 import Typography from "@mui/material/Typography";
 import DoneIcon from "@mui/icons-material/Done";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
@@ -38,7 +38,7 @@ const contestData = {
   C問題: "掛け算",
   D問題: "割り算",
 };
-const ContestRanking: React.FC = () => {
+export const ContestRanking: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <ContestHeader selected={"ranking"} />
@@ -106,4 +106,3 @@ const ContestRanking: React.FC = () => {
     </ThemeProvider>
   );
 };
-export default ContestRanking;

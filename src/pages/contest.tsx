@@ -1,13 +1,13 @@
 import React from "react";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 import { Outlet } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 
 interface Props {
   title: string;
 }
-const Contest: React.FC<Props> = (props) => {
+export const Contest: React.FC<Props> = (props) => {
   return (
     <ThemeProvider theme={theme}>
       <center>
@@ -19,5 +19,3 @@ const Contest: React.FC<Props> = (props) => {
     </ThemeProvider>
   );
 };
-
-export default Contest;

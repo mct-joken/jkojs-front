@@ -1,22 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@mui/system";
-import theme from "../fixtures/theme";
+import { theme } from "../fixtures/theme";
 import KaTeX from "../component/KaTeX";
-import ContestHeader from "../component/ContestHeader";
-
-const ContestTop: React.FC = () => {
+import { ContestHeader } from "../component/ContestHeader";
+import axios from "axios";
+export const ContestTop: React.FC = () => {
+  const pathname: string = window.location.pathname;
+  const contestId: string = pathname.split("/")[1];
+  const [description, setDescription] = useState<string>("");
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3080/api/v1/contests/${contestId}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+      .then((response) => {
+        setDescription(response.data.description);
+      });
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <center>
         <ContestHeader selected="トップ" />
         <KaTeX
-          description={
-            "このコンテストは、競技プログラミング初心者向けの練習用コンテストです。\nプログラミングの基礎的な知識を身につけたい方には、このコンテストへの挑戦をお勧めします。\n競技プログラミングに必要な、基本的な入力出力、四則演算、繰り返しや条件分岐などの知識が必要です。"
-          }
+          style={{ width: "80%", maxWidth: "1200px" }}
+          description={description}
         />
       </center>
     </ThemeProvider>
   );
 };
-
-export default ContestTop;
