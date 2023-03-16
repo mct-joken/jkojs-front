@@ -102,6 +102,7 @@ export const ContestRanking: React.FC = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <Typography variant={"body2"}>This page is work in progress.</Typography>
     </ThemeProvider>
   );
 };

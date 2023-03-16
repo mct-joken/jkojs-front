@@ -15,6 +15,7 @@ import { languages } from "../fixtures/languages";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { base64Encode } from "../fixtures/Base64";
 
 type problemType = {
   id: string;
@@ -49,12 +50,13 @@ export const ContestProblem: React.FC = memo(() => {
   }, []);
   // 問題提出する関数
   const onClickSubmit = async () => {
+    const encodedCode = base64Encode(code);
     const submissionStatus = await axios
       .post(
         `http://localhost:3080/api/v1/contests/${contestId}/submissions`,
         {
           problemID: problems?.find((p) => p.title === selected)?.id,
-          code: code,
+          code: encodedCode,
           language: language,
         },
         {
