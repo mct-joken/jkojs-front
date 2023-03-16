@@ -10,7 +10,7 @@ export const ContestTop: React.FC = () => {
   const [description, setDescription] = useState<string>("");
   useEffect(() => {
     axios
-      .get(`http://localhost:3080/api/v1/contests/${contestId}`, {
+      .get(`https://ojs.joken.dev/api/v1/contests/${contestId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((response) => {

@@ -20,7 +20,7 @@ export const Login: React.FC = memo(() => {
 
   const onClickLogin = async () => {
     const authStatus = await axios
-      .post("http://localhost:3080/api/v1/login", {
+      .post("https://ojs.joken.dev/api/v1/login", {
         config,
         name: userName,
         password: password,

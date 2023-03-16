@@ -40,7 +40,7 @@ export const ContestProblem: React.FC = memo(() => {
   // 最初に問題を取得する
   useEffect(() => {
     axios
-      .get(`http://localhost:3080/api/v1/contests/${contestId}/problems`, {
+      .get(`https://ojs.joken.dev/api/v1/contests/${contestId}/problems`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((response) => {
@@ -53,7 +53,7 @@ export const ContestProblem: React.FC = memo(() => {
     const encodedCode = base64Encode(code);
     const submissionStatus = await axios
       .post(
-        `http://localhost:3080/api/v1/contests/${contestId}/submissions`,
+        `https://ojs.joken.dev/api/v1/contests/${contestId}/submissions`,
         {
           problemID: problems?.find((p) => p.title === selected)?.id,
           code: encodedCode,

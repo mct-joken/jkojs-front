@@ -22,7 +22,7 @@ export const Contests: React.FC = () => {
   const [contests, setContests] = React.useState<Contest[]>([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3080/api/v1/contests", {
+      .get("https://ojs.joken.dev/api/v1/contests", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => {

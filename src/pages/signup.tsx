@@ -41,7 +41,7 @@ export const Signup: React.FC = memo(() => {
     }
     const authStatus = await axios
       .post(
-        "http://localhost:3080/api/v1/users",
+        "https://ojs.joken.dev/api/v1/users",
         {
           name: userName,
           email: email,
